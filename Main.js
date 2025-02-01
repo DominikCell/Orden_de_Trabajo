@@ -1,7 +1,7 @@
 // https://ordendetrabajo.dominikcell.com
 //by Dominik Mielczarek
 //Simple HTML, CSS end JS.
-
+//Gracias Por usar ODF by DominikCell
 const btnLog = document.getElementById('openModalBtn2')
 const btnAllE = document.getElementById('openModalBtn3')
 const btnOut = document.getElementById('logoutButton')
