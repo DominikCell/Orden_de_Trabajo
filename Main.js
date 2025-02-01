@@ -24,13 +24,13 @@ import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/11.1.
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyD0-5H7Nak4Yug8q-X4EITkztLm3e9uWso",
-  authDomain: "milibreriajsfb.firebaseapp.com",
-  databaseURL: "https://milibreriajsfb-default-rtdb.firebaseio.com",
-  projectId: "milibreriajsfb",
-  storageBucket: "milibreriajsfb.appspot.com",
-  messagingSenderId: "274479531648",
-  appId: "1:274479531648:web:c78a0a9136042b5e834865"
+  apiKey: "AIzaSyD0-}e9uWso",
+  authDomain: "milibr}irebaseapp.com",
+  databaseURL: "https:}ajsfb-default-rtdb.firebaseio.com",
+  projectId: "milibr}ajsfb",
+  storageBucket: "milibre}fb.appspot.com",
+  messagingSenderId: "2744}648",
+  appId: "1:}865"
 };
 
 // Initialize Firebase
