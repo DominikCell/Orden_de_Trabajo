@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orden de Trabajo - DominikCell</title>
+    <meta name="description" content="Obtén órdenes de trabajo personalizadas y eficientes con nuestra plataforma. Aumenta la productividad y optimiza tus procesos de trabajo.">
+    <meta name="keywords" content="órdenes de trabajo, productividad, eficiencia, plataforma de trabajo, optimización de procesos">
+    <meta name="author" content="Dominik Mielczarek">
+    <link rel="canonical" href="https://ordendetrabajo.dominikcell.com/index.html">
+        <!-- QRCode.js -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsqr/dist/jsQR.min.js"></script>
+
+    <!-- jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        
+    </script>
+
+    
+    <meta property="og:title" content="Orden de Trabajo - DominikCell">
+    <meta property="og:description" content="Obtén órdenes de trabajo personalizadas y eficientes con nuestra plataforma. Aumenta la productividad y optimiza tus procesos de trabajo.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ordendetrabajo.dominikcell.com/index.html">
+    <meta property="og:image" content="https://scontent.fsmr1-1.fna.fbcdn.net/v/t39.30808-6/475298281_4212880442266889_2444942549267710911_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHwjHkNC31hGZ_pRp7LaT3-UOpfgRdYRb9Q6l-BF1hFv6DYbaCoU3bgIKmnKQtpKvM4lfCFqcYGR0vC-RSWg8bD&_nc_ohc=ET-VyfJfWpAQ7kNvgGBDmPw&_nc_zt=23&_nc_ht=scontent.fsmr1-1.fna&_nc_gid=AzUvPQ9FCUNyfwD09L6sVga&oh=00_AYAD5GVsH2t0elm807dP7uqjhN8kUFs-qOnKWNsJBlbJGQ&oe=679D63F6">
+
+
+</head>
+
+
+<!-- aca va el header de la pagina -->
+ 
+
+
+<body >
+    
+    <div class="btnCentrales">
+<!-- Elemento para mostrar el correo -->
+<p><span id="userEmail2"></span></p>
+<div style="display: flex; align-items: center; width: 250px;">
+    <input type="text" id="busquedaManual" placeholder="Ingrese ID ODF001" autocomplete="off" style="flex-grow: 1;" title="ODF001.">
+<button class="btn5" id="buscarManualButton" style="background-color: rgba(62, 235, 19, 0.89); color: rgb(7, 7, 7); margin-left: 5px; padding: 10px 20px; font-size: 16px; cursor: pointer; border: none; border-radius: 8px; transition: background-color 0.3s, transform 0.3s;">Buscar</button>
+</div>
+<video id="video" width="400" height="300" autoplay style="display: none;"></video>
+<canvas id="canvas" style="display: none;"></canvas>
+<button class="btn" id="startButton">Escanear QR</button>
+<button class="btn2" id="stopButton" style="display: none;">Detener búsqueda</button>
+
+
+
+
+
+<!-- Botónes-->
+<button class="btn" id="openModalBtn2">Iniciar Sesion</button>
+
+<button class="btn" id="openModalBtn">Generar Orden</button>
+<button class="btn" id="openRepairedBtn">Equipos por reparar</button>
+<button class="btn" id="openRepairedBtn3">Equipos Listos</button>
+<!--<button class="btn" id="" >Equipos Entregados</button>-->
+<button class="btn" id="openModalBtn3">Todos los Equipos</button>
+<button class="btn" id="openConfigBtn" style="display: none;">configuration</button>
+<button class="btn" id="logoutButton">Cerrar Sesion</button>
+
+    </div>
+    
+
+
+
+
+    <!-- Modal -->
+    <div id="registroModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="openModalregistroClose">x</span>
+            <h2>Registro de Usuario</h2>
+            <form>
+                <div class="mb-3">
+                    <label for="registerEmail" class="form-label">Correo:</label>
+                    <input type="email" id="registerEmail" required>
+                </div>
+                <div class="mb-3">
+                    <label for="registerPassword" class="form-label">Contraseña:</label>
+                    <input type="password" id="registerPassword" required>
+                </div>
+                <div class="mb-3">
+                    <label for="registerNombre" class="form-label">Nombre Local:</label>
+                    <input type="text" id="registerNombre" required>
+                </div>
+                <div class="mb-3">
+                    <label for="registerWhatsapp" class="form-label">Número de WhatsApp</label>
+                    <input type="tel" id="registerWhatsapp" required>
+                </div>
+                <div class="mb-3">
+                    <label for="registerDireccion" class="form-label">Dirección de Local</label>
+                    <input type="text" id="registerDireccion" required>
+                </div>
+                <div class="mb-3">
+                    <label for="registerRedesSociales" class="form-label">Redes Sociales</label>
+                    <input type="text" id="registerRedesSociales" required>
+                </div>
+                <div >
+                    <label>Selecciona tu País:</label>
+                <select id="pais" name="pais">
+                    <option value="1">Estados Unidos</option>
+                    <option value="1">Canadá</option>
+                    <option value="34">España</option>
+                    <option value="52">México</option>
+                    <option value="53">Cuba</option>
+                    <option value="54">Argentina</option>
+                    <option value="55">Brasil</option>
+                    <option value="56">Chile</option>
+                    <option value="57">Colombia</option>
+                    
+                    <option value="58">Venezuela</option>
+                    <option value="51">Perú</option>
+                    <option value="503">El Salvador</option>
+                    <option value="504">Honduras</option>
+                    <option value="505">Nicaragua</option>
+                    <option value="506">Costa Rica</option>
+                    <option value="507">Panamá</option>
+                    <option value="591">Bolivia</option>
+                    <option value="592">Guyana</option>
+                    <option value="593">Ecuador</option>
+                    <option value="595">Paraguay</option>
+                    <option value="598">Uruguay</option>
+                    <option value="502">Guatemala</option>
+                    <option value="509">Haití</option>
+                    <option value="509">República Dominicana</option>
+                </select>
+
+                    
+                    
+                    
+                    
+                    
+                </div>
+                
+                
+
+                <button class="btn3" type="button" id="registerUser">Registrar</button>
+                <br>
+                
+            </form>
+            
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- El Modal -->
+    <div id="myRepairedModal" class="modal">
+        <!-- Contenido del Modal -->
+        <div class="modal-content">
+            <span class="close-repaired-btn"  id="closeRepairedBtn">&times;</span>
+            <br>
+            <p>Equipos Por Reparar.</p>
+            <br>
+            <table id="ordenesPorRepararTable" border="1">
+                <thead>
+                    <tr>
+                        <th>Orden</th>
+                        <th>Fecha Hora</th>
+                        <th>Cliente</th>
+                        <th>Modelo</th>
+                        <th>Reparación</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aquí se insertarán las órdenes -->
+                </tbody>
+            </table>
+            <br>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- El Modal -->
+    <div id="myRepairedModal3" class="modal">
+        <!-- Contenido del Modal -->
+        <div class="modal-content">
+            <br>
+            <span class="close-repaired-btn" id="closeRepairedBtn3">&times;</span>
+            <br>
+            <p>Equipos Listos.</p>
+            <br>
+            <table id="ordenesPorRepararOkTable" border="1">
+                <thead>
+                    <tr>
+                        <th>Orden</th>
+                        <th>Cliente</th>
+                        <th>Modelo</th>
+                        <th>Reparación</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aquí se insertarán las órdenes -->
+                </tbody>
+            </table>
+            <br>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- El Modal -->
+    <div id="myConfigModal" class="modal-config">
+        <!-- Contenido del Modal -->
+        <div class="modal-content">
+            <span class="close-config-btn" id="closeConfigBtn">&times;</span>
+            <p>Este es un contenido dentro del modal de configuraciones.</p>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- El Modal orden de trabjao-->
+    <div id="myModal" class="modal">
+        <!-- Contenido del Modal -->
+        <div class="modal-content">
+            <span class="close-btn" id="closeModalBtn">&times;</span>
+            <br>
+            <Section class="title">
+                <h1> Orden de Trabajo</h1>
+
+            </Section>
+            <section class="formulario">
+
+                <label for="currentDateTime">Fecha y Hora:</label>
+                <input type="datetime-local" id="currentDateTime" name="currentDateTime">
+
+                <br>
+                <div class="q">
+                    <label for="imei">IMEI:</label>
+                    <input type="number" id="imei" placeholder="IMEI o SN" oninput="validateLength(this)">
+                    <br>
+                    <label for="checkbox1">Celular</label>
+                    <input type="checkbox" id="checkbox1" name="option1"
+                        onclick="toggleCheckbox('checkbox1', 'checkbox2')">
+
+                    <label for="checkbox2">Portatil</label>
+                    <input type="checkbox" id="checkbox2" name="option2"
+                        onclick="toggleCheckbox('checkbox2', 'checkbox1')">
+
+                </div>
+
+
+
+                <br>
+                <label for="Marca">Marca:</label>
+                <select id="Marca" name="Marca">
+                    <option value="NC">NC</option>
+                    <option value="OPPO">OPPO</option>
+                    <option value="VIVO">VIVO</option>
+                    <option value="IPhone">IPhone</option>
+                    <option value="Samsung">Samsung</option>
+                    <option value="LG">LG</option>
+                    <option value="Nokia">Nokia</option>
+                    <option value="SONY">SONY</option>
+                    <option value="Huawei">Huawei</option>
+                    <option value="Motorola">Motorola</option>
+                    <option value="ZTE">ZTE</option>
+                    <option value="Redmi">Redmi</option>
+                    <option value="HP">HP</option>
+                    <option value="Acer">Acer</option>
+                    <option value="Lenovo">Lenovo</option>
+                    <option value="Toshiba">Toshiba</option>
+                    <option value="HONOR">Honor</option>
+
+
+
+
+                </select>
+                <br>
+                <label for="model">Modelo:</label>
+                <input type="text" id="model" placeholder="Modelo">
+
+                <br>
+
+                <label for="miCombobox1">Tipo de Reparacion</label>
+                <select id="miCombobox1" name="miCombobox1" onchange="toggleTextbox(this)">
+                    <option value="No Enciende">No Enciende</option>
+                    <option value="FRP">Cuenta Google FRP.</option>
+                    <option value="Cuenta MI">Cuenta MI</option>
+                    <option value="Reparacion de Botones">Reparacion de Botones</option>
+                    <option value="Reparacion de Bateria">Reparacion de Bateria</option>
+                    <option value="Reparacion de Tactil">Reparacion de Tactil</option>
+                    <option value="Remplazo de pantalla">Remplazo de pantalla</option>
+                    <option value="Remplazo de Camara">Remplazo de Camara</option>
+                    <option value="Falla de Camara">Falla de Camara</option>
+                    <option value="Falla de Software">Falla de Software</option>
+                    <option value="Falla de Carga">Falla de Carga</option>
+                    <option value="Falla de Sonido">Falla de Sonido</option>
+                    <option value="Falla de Redes">Falla de Redes</option>
+                    <option value="Falla de Imagen">Falla de Imagen</option>
+                    <option value="Falla de Tactil">Falla de Tactil</option>
+                    <option value="Remplazo de Partes">Remplazo de Partes</option>
+                    <option value="Sin Señal">Sin Señal</option>
+                    <option value="Sin WIFI / BT">Sin WIFI / BT</option>
+                    <option value="Reparacion de Board">Reparacion de Board</option>
+                    <option value="Remplazo de Discos">Remplazo de Discos</option>
+                    <option value="Aumento de Mem">Aumento de Memoria</option>
+                    <option value="Instalar Sistema Win">Instalar Sistema Win</option>
+                    <option value="Instalar Software">Instalar Software</option>
+                    <option value="Virus">Virus</option>
+                    <option value="Mantenimiento">Mantenimiento</option>
+                    <option value="especificar">Otra...</option>
+                    </select>
+                    <input type="text" id="otroTipo" name="otroTipo" style="display:none;" placeholder="Especifique otro tipo de reparación" />
+
+                <script>
+                function toggleTextbox(select) {
+                var textbox = document.getElementById('otroTipo');
+                if (select.value === 'especificar') {
+                    textbox.style.display = 'block';
+                } else {
+                    textbox.style.display = 'none';
+                    textbox.value = '';
+                }
+            }
+                </script>
+                <br>
+                <label for="ASP">Aspecto Fisico:</label>
+                <input type="text" id="ASP" placeholder="Carcasa, Partiduras, Ect...">
+                <br>
+                <label for="batt">Bateria:</label>
+                <input type="text" id="batt" placeholder="Bateria; buena, mala, Inflada.">
+                <br>
+
+                <!--tipo de desbloqueo-->
+                <label for="tipoDes">Tipo de Desbloqueo:</label>
+                <select id="tipoDes">
+                    <option value="No Tiene">No Tiene</option>
+                    <option value="PIN">PIN</option>
+                    <option value="contrasena">Contraseña</option>
+                    <option value="patron">Patron</option>
+                </select>
+
+                <div id="PINi">
+                    <label for="PIN">PIN:</label>
+                    <input type="number" id="PIN" placeholder="012345">
+
+                </div>
+
+                <div id="Contraseña">
+                    <label for="contrasena">Contraseña:</label>
+                    <input type="text" id="contrasena" placeholder="Contraseña">
+
+                </div>
+
+                <div id="Patron">
+                    <label>Patrón de Desbloqueo:</label>
+                    <br>
+                    <canvas id="unlockPattern" width="300" height="300"></canvas>
+                    <input type="hidden" id="patternInput" name="patternInput">
+
+                </div>
+
+
+
+                <br>
+                <label for="obs">Observaciones:</label>
+                <br>
+                <textarea id="obs" placeholder="Observaciones" rows="5" cols="30" style="width: 310px;"></textarea>
+
+                <br>
+                <h2>Datos del Usuario</h2>
+                <br>
+
+                <label for="tipoDoc">Tipo de Documento:</label>
+                <select id="tipoDoc">
+                    <option value="cc">CC</option>
+                    <option value="ppt">PPT</option>
+                    <option value="pasaporte">Pasaporte</option>
+                    <option value="nit">NIT</option>
+                </select>
+
+                <br>
+
+                <label for="numDoc">Número: </label>
+
+                <input type="number" id="numDoc" placeholder="Ingrese el documento">
+
+                <br>
+                <label for="nombreC">Nombre: </label>
+                <input type="text" id="nombreC" placeholder="Nombre">
+
+                <br>
+                <label for="Apellidos">Apellido:</label>
+                <input type="text" id="Apellidos" placeholder="Apellidos">
+
+                <br>
+                <label for="Numero">Numero Celular:</label>
+                <input type="number" id="Numero" placeholder="Numero">
+                <br>
+                <label for="NumeroW">Numero whatsapp:</label>
+                <input type="number" id="NumeroW" placeholder="Numero">
+
+
+
+                <br>
+                <br>
+                <h2>Presupuesto</h2>
+                <br>
+                <label for="total">Total:</label>
+                <input type="number" id="total" oninput="calcularSaldo()"><br>
+
+                <label for="abono">Abono:</label>
+                <input type="number" id="abono" oninput="calcularSaldo()"><br>
+
+                <label for="saldo">Saldo:</label>
+                <input type="number" id="saldo" readonly><br>
+
+
+                <br>
+                <label for="miCombobox2">Ingresa Por:</label>
+                <select id="miCombobox2" name="miCombobox2">
+                    <option value="Reparacion">Reparacion</option>
+                    <option value="Garantia">Garantia</option>
+
+
+                </select>
+
+
+                <button class="btn" id="btnenviarorden">Enviar Orden</button>
+
+                <br>
+                <!--<button type="button" id="resetForm">Restablecer Formulario</button>-->
+
+
+
+
+
+
+
+            </section>
+            <br>
+        </div>
+    </div>
+
+    <button class="btn" style="display: none;" id="openModalBtn6">By Dominikcell </button>
+    <!-- El Modal view de oreden -->
+    <div id="myModal6" class="modalz">
+        <!-- Contenido del Modal -->
+        <div class="modal-content">
+            <br>
+            <span class="close-btn" id="closeModalBtn6">&times;</span>
+            <form id="ordenForm6">
+                <label for="currentDateTime6">Fecha y Hora:</label>
+                <input type="text" id="currentDateTime6" name="fechaHora6" readonly>
+                <br>
+                <label for="imei6">IMEI:</label>
+                <input type="text" id="imei6" name="imei6" readonly>
+                <br>
+                <label for="Marca6">Marca:</label>
+                <input type="text" id="Marca6" name="marca6" readonly>
+                <br>
+                <label for="model6">Modelo:</label>
+                <input type="text" id="model6" name="modelo6" readonly>
+                <br>
+                <label for="miCombobox16">Tipo de Reparación:</label>
+                <input type="text" id="miCombobox16" name="tipoReparacion6" readonly>
+                <br>
+                <label for="ASP6">Aspecto Físico:</label>
+                <input type="text" id="ASP6" name="aspectoFisico6" readonly>
+                <br>
+                <label for="batt6">Batería:</label>
+                <input type="text" id="batt6" name="bateria6" readonly>
+                <br>
+                <label for="tipoDes6">Tipo de Desbloqueo:</label>
+                <input type="text" id="tipoDes6" name="tipoDesbloqueo6" readonly>
+                <br>
+                <label for="pattern6"> Patron:</label>
+                <input type="text" id="pattern6" name="pattern6" readonly>
+                <br>
+                <label for="PIN6">PIN:</label>
+                <input type="text" id="PIN6" name="pin6" readonly>
+                <br>
+                <label for="contrasena6">Contraseña:</label>
+                <input type="text" id="contrasena6" name="contrasena6" readonly>
+                <br>
+                <label for="obs6">Observaciones:</label>
+                <input type="text" id="obs6" name="observaciones6" readonly>
+                <br>
+                <label for="tipoDoc6">Tipo de Documento:</label>
+                <input type="text" id="tipoDoc6" name="tipoDoc6" readonly>
+                <br>
+                <label for="numDoc6">Número de Documento:</label>
+                <input type="text" id="numDoc6" name="numDoc6" readonly>
+                <br>
+                <label for="nombreC6">Nombre:</label>
+                <input type="text" id="nombreC6" name="nombre6" readonly>
+                <br>
+                <label for="Apellidos6">Apellidos:</label>
+                <input type="text" id="Apellidos6" name="apellido6" readonly>
+                <br>
+                <label for="Numero6">Número Casa:</label>
+                <input type="text" id="Numero6" name="numero6" readonly><br>
+
+                <label for="NumeroW6">WhatsApp:</label>
+                <input type="text" id="NumeroW6" name="numeroW6" readonly>
+                <br><br><br>
+                <a style="margin: 5px;" class="btn" id="chatButton" href="">Chatear por whatsapp</a>
+                <br>
+                
+                <br><br><br>
+
+
+
+                <label for="miCombobox26">Ingresado Por:</label>
+                <input type="text" id="miCombobox26" name="ingresaPor6" readonly>
+                <br>
+                <label for="total2">Total:</label>
+                <input type="number" id="total2" readonly><br>
+
+                <label for="abono2">Abono:</label>
+                <input type="number2" id="abono2" readonly><br>
+
+                <label for="saldo2">Saldo:</label>
+                <input type="number" id="saldo2" readonly><br>
+                <br>
+                <button class="btn1" type="button" id="actualizarBtn">Reparado</button>
+                <button class="btn2" type="button" id="actualizarBtn2">Rechazar</button>
+                <button class="btn3" type="button" id="actualizarBtn3">Entregrado</button>
+                <button  class="btn1" type="button" id="QRButton">imprimir QR</button>
+                <button class="btn" type="button" id="imprimirBtn">imprimir Orden</button>
+            </form>
+            <br>
+        </div>
+        <br>
+    </div>
+
+    <!-- El Modal inicio de sesion -->
+    <div id="myModal2" class="modal">
+        <!-- Contenido del Modal -->
+        <div class="modal-content">
+            <span class="close-btn" id="closeModalBtn2">&times;</span>
+            <h1>Iniciar Sesión</h1>
+            
+            <div class="rrj5">
+                <input type="email" id="emailInput" placeholder="Correo Electrocico" required>
+            <br>
+        
+            
+            <input type="password" id="passwordInput" placeholder="Contraseña" required>
+            <br>
+            <button type="button" id="loginButton" class="btn">Iniciar Sesión</button>
+            <button class="btn3" id="openModalregistro">Registrar Usuario</button>
+            <br>
+
+            </div>
+            
+            
+            
+
+            
+
+        </div>
+    </div>
+
+
+
+    <!-- El Modal todos los esquipos -->
+    <div id="myModal3" class="modal">
+        <!-- Contenido del Modal -->
+        <div class="modal-content">
+            <span class="close-btn" id="closeModalBtn3">&times;</span>
+            <br>
+            <table id="ordenesTable" border="1">
+                <thead>
+                    <tr>
+                        <th>Orden</th>
+                        <th>Cliente</th>
+                        <th>Modelo</th>
+                        <th>Reparación</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aquí se insertarán las órdenes -->
+                </tbody>
+            </table>
+            <br><br>
+        </div>
+    </div>
+    <br>
+    <button class="boton-flotante" onclick="window.location.href='https://wa.me/573023605446'">Mejorar App</button>
+
+    <!--Footer-->
+    <div class="footer">
+        <h6>Orden de Trabajos By DominikCell</h6>
+        
+    </div>
+    <!--endFooter-->
+
+    <script src="Funciones.js"></script>
+    <script type="module" src="Main.js"></script>
+    <!--publicidad adsense-->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7576613655077771"
+    crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

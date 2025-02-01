@@ -1,0 +1,472 @@
+/* Dominik Mielczarek */
+
+
+body {
+    margin: 0;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100vh;
+    background-image: url(''); 
+    /* Safari 5.1 - 6.0 */
+background: -webkit-linear-gradient(to bottom right, #8aa1d2, #c7264e, #ffc107);
+
+/* Opera 11.1 - 12.0 */
+background: -o-linear-gradient(to bottom right, #d28a8a, #c73926, #ff5722);
+
+/* Firefox 3.6 - 15 */
+background: -moz-linear-gradient(to bottom right, #8aa1d2, #4326c7, #4caf50);
+
+/* Standard syntax */
+background: linear-gradient(to bottom right, #49633b, #26c789, #2196f3);
+
+
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    background-position: center; 
+    
+  }
+
+
+  
+  nav {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 60px;
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0 20px;
+    line-height: 60px;
+    display: block;
+    text-align: center;
+  }
+  
+  nav ul li a:hover {
+    background-color: #555;
+  }
+  
+  nav .menu-icon {
+    display: none;
+    cursor: pointer;
+    font-size: 30px;
+      color: #fff;
+      filter: invert(1);
+      
+  }
+  
+  @media screen and (max-width: 768px) {
+    nav ul {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background-color: #555;
+    }
+    nav ul li {
+      width: 100%;
+      text-align: center;
+    }
+    nav .menu-icon {
+      display: block;
+          margin-left: auto;
+    }
+    .menu.open ul {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  
+
+  /**/
+  #userEmail2{
+    color: #fefefe;
+  }
+        label 
+        {
+           display: inline-block; 
+           margin-top: 5px;
+           margin-right: 10px; 
+          /* Ajusta este valor para la separación que desees */ 
+        } 
+          .q input[type="number"], 
+          .q input[type="checkbox"] {
+             display: inline-block;
+            }
+        canvas {
+          border: 1px solid #000;
+        }
+        p{
+            margin: 1px;
+        }
+        #Contraseña, #Patron, #PINi{
+            display: none;
+        }
+        
+        /* Estilos básicos del botón */
+        
+        /* Estilos del modal */
+        .modal {
+          margin: 0;
+          padding: 0;
+            display: none; /* Oculto por defecto */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%; /* Ocupar todo el ancho */
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+        }
+        .modalz {
+            display: none; /* Oculto por defecto */
+            position: fixed;
+            z-index: 2;
+            left: 0;
+            top: 0;
+            width: 100%; /* Ocupar todo el ancho */
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+        }
+        
+       /* Estilo para los checkboxes */
+input[type="checkbox"] {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+  cursor: pointer;
+  
+}
+
+input[type="checkbox"]:checked {
+  background-color: #4CAF50;
+  border: 2px solid #4CAF50;
+}
+
+       
+        input[type="email"],
+        input[type="password"],
+        input[type="text"],
+        input[type="tel"],
+        input[type="number"],
+        input[type="number2"]
+        
+         {
+          text-align: center;
+          width: 100%;
+          padding: 10px;
+          margin: 8px 0;
+          box-sizing: border-box;
+          border: 2px solid #ccc;
+          border-radius: 4px;
+          font-size: 12px;
+        }
+        
+        input[type="email"]:focus,
+        input[type="password"]:focus,
+        input[type="text"]:focus,
+        input[type="tel"]:focus {
+          border-color: rgba(62, 235, 19, 0.89);
+          outline: none;
+        }
+        input[type="email"]:hover,
+        input[type="password"]:hover,
+        input[type="text"]:hover,
+        input[type="tel"]:hover {
+          border-color: #4CAF50;
+          outline: none;
+        }
+        
+        select {
+          width: 100%;
+          padding: 15px;
+          margin: 8px 0;
+          box-sizing: border-box;
+          border: 2px solid #ccc;
+          border-radius: 4px;
+          font-size: 20px;
+          background-color: #f9f9f9;
+          color: #333;
+        }
+        
+        select:focus {
+          border-color: #4CAF50;
+          outline: none;
+        }
+        
+/* Estilo para el chatButton */
+#chatButton {
+  width: 90%;
+  background-color: #4CAF50; /* Verde para el botón */
+  color: white; /* Texto en blanco */
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: background 0.3s ease;
+}
+
+/* Efecto hover para el chatButton */
+#chatButton:hover {
+  background-color: #45a049;
+}
+
+
+#obs6 {
+  width: 100%;
+  box-sizing: border-box;/* Dominik Mielczarek */
+  overflow: hidden;
+  resize: none; /* Prevenir el redimensionamiento manual */
+}
+
+
+
+        
+        
+
+
+        .modal-content {
+            font-size: 16px; /* Cambia este valor según el tamaño de texto que prefieras */
+            background-color: #fefefee8;
+            border-radius: 20px;
+            margin: 5% auto;
+            padding: 0 40px;
+            border: 1px solid #888;/* Dominik Mielczarek */
+            width: 600px; /* Ancho del contenido del modal */
+            
+        }
+        .modal-content h1{
+          text-align: center;
+        }
+        .modal-content p{
+          text-align: center;
+          place-items: center;
+        }
+        .modal-content button{
+          width: 100%;
+        }
+        .rrj5{
+          display: grid;
+            place-items: center;/* Dominik Mielczarek */
+
+        }
+        
+        
+
+        /* 
+        
+        */
+
+
+        /* Botón de cierre */
+        .close-btn {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        
+        .formulario { /* Dominik Mielczarek */
+            border: 3px solid #56df17; 
+            padding: 15px; 
+            border-radius: 5px;
+            background-color:#f9f9f9; max-height: 100vh;
+             overflow-y: auto;
+             overflow-x: hidden;  /* Añade una barra de desplazamiento si el contenido es muy alto */ 
+            }
+
+            /* Estilos para el modal */
+
+
+
+
+
+/* Estilos básicos del botón */
+.open-config-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        /* Estilos del modal */
+        .modal-config {
+            display: none; /* Oculto por defecto */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%; /* Ocupar todo el ancho */
+            height: 100%;
+            overflow: auto;/* Dominik Mielczarek */
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+        }
+        
+        
+        
+        
+
+    
+        /* Estilos del modal */
+        .modal-repaired {
+            display: none; /* Oculto por defecto */
+            position: fixed;
+            z-index: 1;/* Dominik Mielczarek */
+            left: 0;
+            top: 0;
+            width: 100%; /* Ocupar todo el ancho */
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+        }
+        
+        /* Contenido del modal */
+        .modal-content-repaired {
+            font-size: 12px; /* Cambia este valor según el tamaño de texto que prefieras */
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Ancho del contenido del modal */
+        }
+        
+        /* Botón de cierre */
+        .close-repaired-btn {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+/* Domin1k Mielczarek */
+        .close-repaired-btn:hover,
+        .close-repaired-btn:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .footer {
+        height: 50px;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        background-color: rgba(72, 255, 0, 0.808);
+        padding: 1px 0;
+        color: #3d3838;
+    }
+
+
+/* Estilos generales para los botones */
+.btn, .btn1, .btn2, .btn3, .btn4 {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 250px;
+    color: rgb(0, 0, 0);
+    border: none;/* Dominik Mielczarek */
+    border-radius: 8px; /* Añadir bordes redondeados */
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  /* Estilos individuales para cada botón */
+  .btn {
+    background-color: rgba(62, 235, 19, 0.89);
+    
+  }
+  .btn1 {
+    background-color: rgba(230, 210, 28, 0.712);
+  }/* Dominik Mielczarek */
+  .btn2 {
+    background-color: rgba(255, 0, 0, 0.63);
+  }
+  .btn3 {
+    background-color: rgba(0, 81, 255, 0.884);
+  }
+  .btn4 {
+    background-color: rgba(9, 255, 0, 0.582);
+  }
+  
+  
+  /* Efectos de hover para los botones */
+  .btn:hover, .btn1:hover, .btn2:hover, .btn3:hover, .btn5:hover {
+    transform: scale(1.1); /* Efecto de zoom */
+  }
+  /* Dominik Mielczarek */
+  /* Estilos para el contenedor de los botones */
+  .btnCentrales {
+    margin: 10px;
+    display: flex;
+    flex-direction: column; /* Apilar los botones verticalmente */
+    align-items: center;
+  }
+  
+  /* Estilos responsivos */
+  @media (max-width: 768px) {
+    .btn, .btn1, .btn2, .btn3 {
+      width: 200px;
+      padding: 12px;
+      font-size: 11px;/* Dominik Mielczarek */
+      
+    }
+    .modal-content {
+        font-size: 16px; /* Cambia este valor según el tamaño de texto que prefieras */
+        background-color: #fefefee8;
+        margin: 5% auto;
+        padding: 10px;
+        border: 1px solid #888;
+        width: 350px; /* Ancho del contenido del modal */
+        font-size: small;
+    }
+    
+       
+  }
+/* Dominik Mielczarek */
+
+  .boton-flotante {
+    position: fixed;
+    bottom: 60px;
+    right: 20px;
+    background-color: #25D366; /* Color de WhatsApp */
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: 16px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    z-index: 1000;
+}
+  /* Dominik Mielczarek */
